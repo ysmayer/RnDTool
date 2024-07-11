@@ -47,6 +47,12 @@ const checkApiKey = (req, res, next) => {
     req.geminiService = new GeminiService(apiKeys.get(userApiKey));
     next();
   };
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../gemini-angular-client/dist/gemini-angular-client')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../gemini-angular-client/dist/gemini-angular-client/index.html'));
+});
 
 // Route to set API key
 app.post('/set-api-key', (req, res) => {
