@@ -1,3 +1,5 @@
+
+
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -139,7 +141,7 @@ app.post('/explain-log-error', checkApiKey, async (req, res) => {
         const result = await req.geminiService.generateContent(prompt);
         res.json({ explanation: result });
     } catch (error) {
-        res.status(500).json({ error: 'Error explaining log error' });
+        res.status(500).json({ error: 'Error explaining log error: ' + error.message });
     }
 });
 

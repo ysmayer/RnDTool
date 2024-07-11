@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\JifiAI\\server.js",
+            "program": "${workspaceFolder}\\RnDAI\\server.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

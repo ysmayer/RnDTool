@@ -2,11 +2,14 @@
     "name": "gemini-project",
     "version": "1.0.0",
     "scripts": {
-      "start:backend": "cd JifiAI && npm start",
-      "start:frontend": "cd gemini-angular-client && ng serve",
-      "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+        "start:backend": "cd RnDAI && npm start",
+        "start:frontend": "cd gemini-angular-client && ng serve",
+        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
     },
     "devDependencies": {
-      "concurrently": "^6.2.0"
+        "concurrently": "^6.2.0"
+    },
+    "dependencies": {
+        "node-fetch": "^3.3.2"
     }
-  }
+}
