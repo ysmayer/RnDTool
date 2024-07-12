@@ -4,7 +4,8 @@
     "scripts": {
         "start:backend": "cd RnDAI && npm start",
         "start:frontend": "cd gemini-angular-client && ng serve",
-        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+        "build": "npm install && cd RnDAI && npm install && cd ../gemini-angular-client && npm install && npm run build"
     },
     "devDependencies": {
         "concurrently": "^6.2.0"
