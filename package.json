@@ -5,8 +5,9 @@
         "start:backend": "cd RnDAI && npm start",
         "start:frontend": "cd gemini-angular-client && ng serve",
         "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-        "build": "npm install && cd RnDAI && npm install && cd ../gemini-angular-client && npm install && npm run build"
-    },
+		"install:all": "npm install && cd RnDAI && npm install && cd ../gemini-angular-client && npm install",
+        "build:frontend": "cd gemini-angular-client && npm run build",
+        "build": "npm run install:all && npm run build:frontend"    },
     "devDependencies": {
         "concurrently": "^6.2.0"
     },
