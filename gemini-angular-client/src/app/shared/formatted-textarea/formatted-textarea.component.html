@@ -1,0 +1,16 @@
+<div class="textarea-container">
+    <textarea *ngIf="isAreaNeeded"
+      [placeholder]="placeholder"
+      [(ngModel)]="inputText"
+      (ngModelChange)="onInputChange($event)"
+      [disabled]="isLoading"
+    ></textarea>
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="isLoading && isLoaderNeeded">
+      <span *ngIf="!isLoading || !isLoaderNeeded">{{ buttonText }}</span>
+      <mat-spinner *ngIf="isLoading && isLoaderNeeded" diameter="35"></mat-spinner>
+    </button>
+    <div class="explanation" *ngIf="outputText">
+      <h3>{{ outputTitle }}:</h3>
+      <div [innerHTML]="formattedOutput"></div>
+    </div>
+  </div>

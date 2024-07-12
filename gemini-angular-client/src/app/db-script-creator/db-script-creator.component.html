@@ -1,0 +1,50 @@
+<!-- <app-formatted-textarea
+placeholder="Add new params"
+buttonText="Create Script"
+outputTitle="Script"
+(submit)="createScript($event)"
+></app-formatted-textarea> -->
+
+<form class="script-generator" [formGroup]="scriptForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Script Type</mat-label>
+      <mat-select formControlName="scriptType">
+        <mat-option value="featureFlag">Add Feature Flag</mat-option>
+        <mat-option value="other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-container *ngIf="scriptForm.get('scriptType')?.value === 'featureFlag'">
+      <mat-form-field>
+        <input matInput placeholder="Script Name" formControlName="scriptName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Feature Name" formControlName="featureName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Owner ID" formControlName="ownerId">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Feature Value" formControlName="featureValue">
+      </mat-form-field>
+    </ng-container>
+
+    <ng-container *ngIf="scriptForm.get('scriptType')?.value === 'other'">
+      <mat-form-field>
+        <textarea matInput placeholder="Describe the script you want" formControlName="freeStyleDescription"></textarea>
+      </mat-form-field>
+    </ng-container>
+
+    <button class="generate-btn" mat-raised-button color="primary" type="submit" [disabled]="scriptForm.invalid" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Generate Script</span>
+        <mat-spinner *ngIf="isLoading" diameter="35"></mat-spinner></button>
+  </form>
+
+  <app-formatted-textarea
+    [isAreaNeeded]="false"
+    [placeholder]="'Generated script will appear here'"
+    [buttonText]="'Copy Script'"
+    [outputTitle]="'Generated Script'"
+    (submit)="copyScript()"
+    [isLoaderNeeded]="false"
+  ></app-formatted-textarea>

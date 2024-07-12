@@ -1,0 +1,17 @@
+.script-generator{
+    flex-wrap: wrap;
+    
+    .mat-form-field {
+        flex: 50% !important;
+    }
+    
+    .mat-form-field-underline{
+        width: 95% !important;
+    }
+
+    .generate-btn {
+        margin-bottom: 20px;
+    }
+
+
+}

@@ -1,0 +1,37 @@
+<!-- app.component.html -->
+<ng-container *ngIf="showNavigation">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>RnDTool</span>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/db-script">
+          <mat-icon>storage</mat-icon>
+          <span>DB Script Creator</span>
+        </a>
+        <a mat-list-item routerLink="/build-failure">
+          <mat-icon>build</mat-icon>
+          <span>Build Failure Explainer</span>
+        </a>
+        <a mat-list-item routerLink="/log-error">
+          <mat-icon>bug_report</mat-icon>
+          <span>Log Error Explainer</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-container>
+
+<ng-container *ngIf="!showNavigation">
+  <router-outlet></router-outlet>
+</ng-container>
