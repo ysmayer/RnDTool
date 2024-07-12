@@ -1,17 +1,19 @@
 {
-    "name": "gemini-project",
-    "version": "1.0.0",
-    "scripts": {
-        "start:backend": "cd RnDAI && npm start",
-        "start:frontend": "cd gemini-angular-client && ng serve",
-        "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-		"install:all": "npm install && cd RnDAI && npm install && cd ../ && cd gemini-angular-client && npm install",
-        "build:frontend": "cd gemini-angular-client && npm run build",
-        "build": "npm run install:all && npm run build:frontend"    },
-    "devDependencies": {
-        "concurrently": "^6.2.0"
-    },
-    "dependencies": {
-        "node-fetch": "^3.3.2"
-    }
+  "name": "gemini-project",
+  "version": "1.0.0",
+  "scripts": {
+    "start:backend": "cd RnDAI && npm start",
+    "start:frontend": "cd gemini-angular-client && ng serve",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "install:backend": "cd RnDAI && npm install",
+    "install:frontend": "cd gemini-angular-client && npm install",
+    "build:frontend": "cd gemini-angular-client && npm run build",
+    "build": "npm install && npm run install:backend && npm run install:frontend && npm run build:frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
 }
