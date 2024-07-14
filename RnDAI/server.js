@@ -16,6 +16,10 @@ app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+
 // Store API keys temporarily (in production, use a proper database)
 const apiKeys = new Map();
 
@@ -151,6 +155,3 @@ app.post('/explain-log-error', checkApiKey, async (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
-});
