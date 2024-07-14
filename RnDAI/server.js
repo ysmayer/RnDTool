@@ -59,7 +59,7 @@ app.get('*', (req, res) => {
 });
 
 // Route to set API key
-app.post('/set-api-key', (req, res) => {
+app.post('/api/set-api-key', (req, res) => {
     const { apiKey } = req.body;
     if (!apiKey) {
         return res.status(400).json({ error: 'API key is required' });
@@ -69,7 +69,7 @@ app.post('/set-api-key', (req, res) => {
 });
 
 // Route for DB script creation
-app.post('/create-db-script', checkApiKey, async (req, res) => {
+app.post('/api/create-db-script', checkApiKey, async (req, res) => {
     const { scriptType, scriptName, featureName, ownerId, featureValue, freeStyleDescription } = req.body;
     
     let prompt = '';
@@ -128,7 +128,7 @@ app.post('/create-db-script', checkApiKey, async (req, res) => {
   });
 
 // Route for build failure explanation
-app.post('/explain-build-failure', checkApiKey, async (req, res) => {
+app.post('/api/explain-build-failure', checkApiKey, async (req, res) => {
     const { buildLog } = req.body;
     const prompt = `Explain the following build failure log and suggest possible solutions:
     ${buildLog}`;
@@ -142,7 +142,7 @@ app.post('/explain-build-failure', checkApiKey, async (req, res) => {
 });
 
 // Route for log error explanation
-app.post('/explain-log-error', checkApiKey, async (req, res) => {
+app.post('/api/explain-log-error', checkApiKey, async (req, res) => {
     const { logError } = req.body;
     const prompt = `Explain the following log error and suggest possible solutions:
     ${logError}`;

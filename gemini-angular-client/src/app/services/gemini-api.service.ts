@@ -8,7 +8,7 @@ import { map, switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class GeminiApiService {
-  private apiUrl = 'http://localhost:3000'; // Update with your backend URL
+  private apiUrl = '/api'; // Update with your backend URL
 
   constructor(private http: HttpClient, private configService: ConfigService) { }
 
